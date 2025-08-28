@@ -8,20 +8,23 @@ use Illuminate\Http\Request;
 
 class RoutingController extends Controller
 {
-    public function getName($name) {
-        return view('home', ['name' => $name]);
-    }
-
-    public function index() {
+    public function index($name)
+    {
         $posts = Post::all();
-        return view('home', compact('posts'));
+
+        return view('home', [
+            'name' => $name,
+            'posts' => $posts
+        ]);
     }
 
-    public function create() {
+    public function create()
+    {
         return view('posts.create');
     }
 
-    public function store(Request $request) {
+    public function store(Request $request)
+    {
         Post::create([
             'title' => $request->title,
             'content' => $request->content,
@@ -30,12 +33,14 @@ class RoutingController extends Controller
         return redirect('/posts');
     }
 
-    public function edit($id) {
+    public function edit($id)
+    {
         $post = Post::findOrFail($id);
         return view('posts.edit', compact('post'));
     }
 
-    public function update(Request $request, $id) {
+    public function update(Request $request, $id)
+    {
         $post = Post::findOrFail($id);
         $post->update([
             'title' => $request->title,
@@ -45,11 +50,11 @@ class RoutingController extends Controller
         return redirect('posts');
     }
 
-    public function destroy($id) {
+    public function destroy($id)
+    {
         $post = Post::findOrFail($id);
         $post->delete();
 
         return redirect('/posts');
     }
-
 }

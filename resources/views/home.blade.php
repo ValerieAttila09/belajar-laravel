@@ -39,6 +39,17 @@
             </div>
         </div>
     </div>
+
+    <div class="p-6">
+        <x-testing type="2xl">Daftar Post</x-testing>
+        <a href="/posts/create" class="text-indigo-600 text-md hover:underline transition-all">+ Tambah Post</a>
+
+        <div class="w-full grid grid-cols-3 gap-4">
+            @foreach ($posts as $post)
+                <x-card id="{{ $post->id }}" title="{{ $post->title }}" content="{{ $post->content }}"></x-card>
+            @endforeach
+        </div>
+    </div>
 </body>
 
 </html>
