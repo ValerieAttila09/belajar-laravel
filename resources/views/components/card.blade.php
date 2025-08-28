@@ -5,11 +5,11 @@
         <p class="text-sm text-neutral-600">{{ $content }}</p>
     </div>
     <div class="flex items-center gap-2">
-        <a class="" href="/posts/{{ $id }}/edit">
+        <a class="" href="/{{$name}}/posts/{{ $id }}/edit">
             <button
                 class="cursor-pointer rounded-md bg-white px-3 py-1 border border-[#ebebeb] hover:bg-[#fafafa] transition-all">Edit</button>
         </a>
-        <form action="/posts/{{ $id }}" method="POST" class="">
+        <form action="/{{$name}}/posts/{{ $id }}" method="POST" class="">
             @csrf
             @method('DELETE')
             <button

@@ -14,7 +14,7 @@
 </head>
 
 <body>
-    <x-navbar user="Valerie"></x-navbar>
+    <x-navbar user="{{$name}}"></x-navbar>
     <div class="p-6">
         <x-testing type="2xl">Daftar Post</x-testing>
         <a href="/posts/create" class="text-indigo-600 text-md hover:underline transition-all">+ Tambah Post</a>

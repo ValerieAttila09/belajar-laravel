@@ -35,10 +35,14 @@ class RoutingController extends Controller
         return redirect('/posts');
     }
 
-    public function edit($id)
+    public function edit($name, $id)
     {
         $post = Post::findOrFail($id);
-        return view('posts.edit', compact('post'));
+
+        return view('posts.edit', [
+            'post' => $post,
+            'name' => $name
+        ]);
     }
 
     public function update(Request $request, $id)
