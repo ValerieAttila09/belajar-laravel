@@ -18,9 +18,11 @@ class RoutingController extends Controller
         ]);
     }
 
-    public function create()
+    public function create($name)
     {
-        return view('posts.create');
+        return view('posts.create', [
+            'name' => $name
+        ]);
     }
 
     public function store(Request $request)

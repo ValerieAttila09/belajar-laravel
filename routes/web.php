@@ -28,5 +28,10 @@ Route::middleware('auth')->group(function () {
 require __DIR__ . '/auth.php';
 
 Route::get('/{name}/home', [RoutingController::class, 'index']);
+Route::get('/{name}/posts/create', [RoutingController::class, 'create']);
+Route::post('/{name}/posts/store', [RoutingController::class, 'store']);
+Route::post('/{name}/posts/{id}/edit', [RoutingController::class, 'edit']);
+Route::post('/{name}/posts/{id}', [RoutingController::class, 'update']);
+Route::post('/{name}/posts/{id}', [RoutingController::class, 'destroy']);
 
 ?>
